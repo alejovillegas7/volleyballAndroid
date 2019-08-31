@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Voleibol</string>
+    <string name="nombre">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="boton">Iniciar sesion</string>
+    <string name="boton_jugador_expulsado">Volver a lista de jugadores</string>
+    <string name="boton_vovler_lista_partidos">Volver a lista de partidos</string>
+    <string name="puntuacion1">Puntuacion Final equipo 1</string>
+    <string name="puntuacion2">Puntuacion Final equipo 2</string>
+    <string name="equipo1">Equipo 1</string>
+    <string name="equipo2">Equupo 2</string>
+    <string name="puntuacion">Puntuacion Final</string>
+</resources>
