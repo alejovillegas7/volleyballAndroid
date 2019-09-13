@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText name;
     EditText password;
-    Button buttonLogin, buttonRegister;
+    life.sabujak.roundedbutton.RoundedButton buttonLogin, buttonRegister;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
 
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         name=(EditText)findViewById(R.id.nameText);
         password=(EditText)findViewById(R.id.passwordText);
-        buttonLogin=(Button)findViewById(R.id.loginButton);
-        buttonRegister=(Button)findViewById(R.id.registerButton);
+        buttonLogin=(life.sabujak.roundedbutton.RoundedButton)findViewById(R.id.loginButton);
+        buttonRegister=(life.sabujak.roundedbutton.RoundedButton)findViewById(R.id.registerButton);
         databaseReference= FirebaseDatabase.getInstance().getReference("referees");
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {

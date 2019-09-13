@@ -33,9 +33,11 @@
         android:layout_width="0dp"
         android:layout_height="138dp"
         android:backgroundTint="@android:color/holo_blue_bright"
-        android:onClick="sumarPuntos"
+        android:clickable="false"
+        android:onClick="sumarPuntos1"
         android:text="0"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@+id/puntosEquipo2"
         app:layout_constraintEnd_toStartOf="@+id/puntosEquipo2"
         app:layout_constraintStart_toStartOf="@+id/equipo1Text" />
@@ -47,9 +49,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="23dp"
         android:backgroundTint="@android:color/holo_purple"
-        android:onClick="sumarPuntos"
+        android:clickable="false"
+        android:onClick="sumarPuntos2"
         android:text="0"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/agregarFaltaButton"
         app:layout_constraintEnd_toEndOf="@+id/equipo2Text"
         app:layout_constraintTop_toBottomOf="@+id/equipo2Text" />
@@ -63,6 +67,7 @@
         android:layout_marginEnd="36dp"
         android:onClick="agregarFalta"
         android:text="@string/botonAgregarFalta"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,36 +89,53 @@
         app:layout_constraintTop_toBottomOf="@+id/agregarFaltaButton" />
 
     <Button
+
         android:id="@+id/iniciarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="IniciarCronometro"
         android:text="@string/IniciarPartido"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/timer" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
 
     <Button
         android:id="@+id/pausarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="pausarCronometro"
         android:text="@string/PausarPartido"
-        app:layout_constraintEnd_toEndOf="@+id/reiniciarPartidoButton"
-        app:layout_constraintStart_toEndOf="@+id/reiniciarPartidoButton"
-        app:layout_constraintTop_toBottomOf="@+id/timer" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
 
     <Button
         android:id="@+id/reiniciarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="reiniciarCronometro"
         android:text="@string/Reiniciarcronometro"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarPartidoButton" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.934" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
