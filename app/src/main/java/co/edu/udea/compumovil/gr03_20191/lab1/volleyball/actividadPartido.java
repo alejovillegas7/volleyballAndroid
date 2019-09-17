@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class actividadPartido extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class actividadPartido extends AppCompatActivity {
     Button botonequipo1;
     Button botonequipo2;
     Button agregarFaltaBoton;
+    private int puntuacionMaxima=25;
 
 
     @Override
@@ -42,7 +44,27 @@ public class actividadPartido extends AppCompatActivity {
 
     }
 
+    protected void onRestart() {
+        super.onRestart();
+        if(!running){
+
+            chronometer.setBase(SystemClock.elapsedRealtime()-pauseOffset);
+            chronometer.start();
+            running=true;
+
+        }
+
+    }
+
     public void agregarFalta(View view){
+
+        if(running){
+
+            chronometer.stop();
+            pauseOffset=SystemClock.elapsedRealtime()-chronometer.getBase();
+            running=false;
+
+        }
 
         Intent intent=new Intent(getApplicationContext(), Equipos.class);
         startActivity(intent);
@@ -53,6 +75,7 @@ public class actividadPartido extends AppCompatActivity {
 
             puntosdeEquipo1++;
             botonequipo1.setText(Integer.toString(puntosdeEquipo1));
+            hayGanador(Integer.parseInt(botonequipo1.getText().toString()), Integer.parseInt(botonequipo2.getText().toString()));
 
     }
 
@@ -60,6 +83,50 @@ public class actividadPartido extends AppCompatActivity {
 
         puntodequipo2++;
         botonequipo2.setText(Integer.toString(puntodequipo2));
+        hayGanador(Integer.parseInt(botonequipo1.getText().toString()), Integer.parseInt(botonequipo2.getText().toString()));
+
+    }
+
+    public void hayGanador(int puntos1, int puntos2){
+
+        if((puntos1-puntos2==1 && puntuacionMaxima-puntos1==0) || (puntos2-puntos1==1 && puntuacionMaxima-puntos2==0)){
+
+            puntuacionMaxima++;
+
+        }
+
+        if(puntos1==puntuacionMaxima && puntos1>puntos2 && puntos1-puntos2>=2){
+
+            Toast.makeText(this, "ganador equipo1", Toast.LENGTH_SHORT).show();
+            if(running){
+
+                chronometer.stop();
+                pauseOffset=SystemClock.elapsedRealtime()-chronometer.getBase();
+                running=false;
+
+            }
+            Intent intent = new Intent(getApplicationContext(),FinPartido.class);
+            startActivity(intent);
+
+        }else if(puntos2==puntuacionMaxima && puntos1<puntos2 && puntos2-puntos1>=2){
+
+            Toast.makeText(this, "ganador equipo 2", Toast.LENGTH_SHORT).show();
+            if(running){
+
+                chronometer.stop();
+                pauseOffset=SystemClock.elapsedRealtime()-chronometer.getBase();
+                running=false;
+
+            }
+            Intent intent = new Intent(getApplicationContext(),FinPartido.class);
+            startActivity(intent);
+
+        }else{
+
+            return;
+
+        }
+
 
     }
 
@@ -100,6 +167,7 @@ public class actividadPartido extends AppCompatActivity {
         puntosdeEquipo1=0;
         botonequipo2.setText(Integer.toString(puntodequipo2));
         botonequipo1.setText(Integer.toString(puntosdeEquipo1));
+        puntuacionMaxima=25;
 
 
     }
