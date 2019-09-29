@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("Login or Referee Registration");
+
         name=(EditText)findViewById(R.id.nameText);
         password=(EditText)findViewById(R.id.passwordText);
         buttonLogin=(life.sabujak.roundedbutton.RoundedButton)findViewById(R.id.loginButton);

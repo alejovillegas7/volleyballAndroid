@@ -1,9 +1,11 @@
 package co.edu.udea.compumovil.gr03_20191.lab1.volleyball;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
@@ -16,20 +18,22 @@ public class actividadPartido extends AppCompatActivity {
     private Chronometer chronometer;
     private long pauseOffset;
     private Boolean running = false;
-    TextView equipo1Text;
-    TextView equipo2Text;
-    private int puntosdeEquipo1=0;
-    private int puntodequipo2=0;
-    Button botonequipo1;
-    Button botonequipo2;
+    public static TextView equipo1Text;
+    public static TextView equipo2Text;
+    public static int puntosdeEquipo1=0;
+    public static int puntodequipo2=0;
+    public static Button botonequipo1;
+    public static Button botonequipo2;
     Button agregarFaltaBoton;
-    private int puntuacionMaxima=25;
+    public static int puntuacionMaxima=25;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_partido);
+
+        setTitle("Set Activity");
 
         chronometer=findViewById(R.id.timer);
         equipo1Text = (TextView)findViewById(R.id.equipo1Text);
@@ -42,11 +46,49 @@ public class actividadPartido extends AppCompatActivity {
         botonequipo2=(Button)findViewById(R.id.puntosEquipo2);
         agregarFaltaBoton=(Button)findViewById(R.id.agregarFaltaButton);
 
+        if(savedInstanceState!=null) {
+            int rpuntosdeEquipo1 = savedInstanceState.getInt("puntosEquipo1");
+            int rpuntodequipo2 = savedInstanceState.getInt("puntosEquipo2");
+            puntosdeEquipo1=rpuntosdeEquipo1;
+            puntodequipo2=rpuntodequipo2;
+            botonequipo1.setVisibility(View.VISIBLE);
+            botonequipo2.setVisibility(View.VISIBLE);
+            botonequipo1.setText(Integer.toString(puntosdeEquipo1));
+            botonequipo2.setText(Integer.toString(puntodequipo2));
+            chronometer.setBase(SystemClock.elapsedRealtime()-pauseOffset);
+            chronometer.start();
+            running=true;
+
+        }
+
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        outState.putInt("puntosEquipo1", puntosdeEquipo1);
+        outState.putInt("puntosEquipo2", puntodequipo2);
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState!=null) {
+            puntosdeEquipo1 = savedInstanceState.getInt("puntosEquipo1");
+            puntodequipo2 = savedInstanceState.getInt("puntosEquipo2");
+            botonequipo1.setVisibility(View.VISIBLE);
+            botonequipo2.setVisibility(View.VISIBLE);
+            botonequipo1.setText(Integer.toString(puntosdeEquipo1));
+            botonequipo2.setText(Integer.toString(puntodequipo2));
+        }
     }
 
     protected void onRestart() {
         super.onRestart();
         if(!running){
+
+            botonequipo1.setVisibility(View.VISIBLE);
+            botonequipo2.setVisibility(View.VISIBLE);
 
             chronometer.setBase(SystemClock.elapsedRealtime()-pauseOffset);
             chronometer.start();
@@ -97,7 +139,7 @@ public class actividadPartido extends AppCompatActivity {
 
         if(puntos1==puntuacionMaxima && puntos1>puntos2 && puntos1-puntos2>=2){
 
-            Toast.makeText(this, "ganador equipo1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "El ganador de este Set fué "+listaPartidos.equipo1, Toast.LENGTH_SHORT).show();
             if(running){
 
                 chronometer.stop();
@@ -110,7 +152,7 @@ public class actividadPartido extends AppCompatActivity {
 
         }else if(puntos2==puntuacionMaxima && puntos1<puntos2 && puntos2-puntos1>=2){
 
-            Toast.makeText(this, "ganador equipo 2", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "El ganador de este Set fué "+listaPartidos.equipo2, Toast.LENGTH_SHORT).show();
             if(running){
 
                 chronometer.stop();

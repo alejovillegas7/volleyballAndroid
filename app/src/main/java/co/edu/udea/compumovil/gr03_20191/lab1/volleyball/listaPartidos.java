@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,6 +36,7 @@ public class listaPartidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_partidos);
+        setTitle("Partidos");
 
         databaseReference = FirebaseDatabase.getInstance().getReference("partidos");
         listView=(ListView)findViewById(R.id.listaPartidos);
@@ -74,6 +76,27 @@ public class listaPartidos extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SharedPreferences.Editor preferences1=getSharedPreferences("string1",MODE_PRIVATE).edit();
+                SharedPreferences.Editor preferences2=getSharedPreferences("string2",MODE_PRIVATE).edit();
+                SharedPreferences preferences1retorna;
+                SharedPreferences preferences2retorna;
+                StringBuilder str=new StringBuilder();
+                StringBuilder str2= new StringBuilder();
+                for(int j=0;j<Equipos.faltas1.length;j++){
+
+                    str.append(0).append(",");
+
+                }
+                for(int j=0;j<Equipos.faltas2.length;j++){
+
+                    str2.append(0).append(",");
+
+                }
+
+                preferences1.putString("string",str.toString());
+                preferences1.apply();
+                preferences2.putString("string",str2.toString());
+                preferences2.apply();
                 String cadenaSeleccionada = (listView.getItemAtPosition(i).toString());
                 String[] equipos=cadenaSeleccionada.split(" vs ");
                 equipo1 = equipos[0];

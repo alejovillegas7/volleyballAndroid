@@ -9,18 +9,19 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".actividadPartido"></activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".actividadPartido" />
         <activity android:name=".FinPartido" />
         <activity android:name=".jugadorExpulsado" />
         <activity android:name=".Faltas" />
         <activity android:name=".Equipos" />
         <activity android:name=".listaPartidos" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package co.edu.udea.compumovil.gr03_20191.lab1.volleyball;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -29,8 +30,8 @@ public class Equipos extends AppCompatActivity {
     //private boolean isItemClicked=false;
     Jugador[] Jugador1 = new Jugador[31];
     Jugador[] Jugador2 = new Jugador[31];//{"#1","#2","#3","#4","#5","#6","#7","#8","#9","#10","#11","#12","#13","#14","#15","#16","#17","#18","#19","#20","#21","#22","#23","#24","#25","#26","#27","#28","#29","#30",};
-    int[] faltas1=new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    int[] faltas2=new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    public static int[] faltas1=new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    public static int[] faltas2=new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     SharedPreferences.Editor preferences1;
     SharedPreferences.Editor preferences2;
     SharedPreferences preferences1retorna;
@@ -39,7 +40,7 @@ public class Equipos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("JUGADORES");
+        setTitle("Players List");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipos);
         listView1=(ListView)findViewById(R.id.jugadoresEquipo1);
@@ -63,10 +64,13 @@ public class Equipos extends AppCompatActivity {
                 if(faltas1[i+1]==0){
 
                     faltas1[i+1]++;
+                    Toast.makeText(Equipos.this, "Falta agregada al jugador", Toast.LENGTH_SHORT).show();
 
                 }else if(faltas1[i+1]==1){
 
                     String jugadorExpulsado=listView1.getItemAtPosition(i).toString();
+
+
                     faltas1[i+1]++;
                     Toast.makeText(Equipos.this, "el jugador "+jugadorExpulsado+" debe de ser expulsado", Toast.LENGTH_SHORT).show();
 
@@ -98,9 +102,15 @@ public class Equipos extends AppCompatActivity {
 
                     faltas2[i+1]++;
 
+                    Toast.makeText(Equipos.this, "Falta agregada al jugador", Toast.LENGTH_SHORT).show();
+
+
+
                 }else if(faltas2[i+1]==1){
 
                     String jugadorExpulsado2=listView2.getItemAtPosition(i).toString();
+
+
                     faltas2[i+1]++;
                     Toast.makeText(Equipos.this, "el jugador "+jugadorExpulsado2+" debe de ser expulsado", Toast.LENGTH_SHORT).show();
 

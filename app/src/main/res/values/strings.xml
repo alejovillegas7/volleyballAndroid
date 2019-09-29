@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Voleibol</string>
+    <string name="app_name">volleyball</string>
     <string name="nombre">Nombre de usuario</string>
     <string name="password">Contraseña</string>
     <string name="boton">Iniciar sesion</string>
@@ -12,7 +12,8 @@
     <string name="puntuacion">Puntuacion Final</string>
     <string name="botonRegistrar">Registrar</string>
     <string name="botonAgregarFalta">Agregar Falta</string>
-    <string name="IniciarPartido">Iniciar Partido</string>
+    <string name="IniciarPartido">Iniciar Set</string>
     <string name="Reiniciarcronometro">Reiniciar Cronometro</string>
-    <string name="PausarPartido">Pausar Partido</string>
+    <string name="PausarPartido">Pausar Set</string>
+    <string name="botonJugarOtroSet">Jusgar Otro Set</string>
 </resources>

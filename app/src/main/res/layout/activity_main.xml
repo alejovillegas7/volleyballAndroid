@@ -4,26 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303F9F"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="159dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginBottom="42dp"
-        app:layout_constraintBottom_toTopOf="@+id/nameText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[0]" />
 
     <EditText
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="@string/nombre"
         android:inputType="textPersonName"
@@ -37,7 +25,7 @@
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="88dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -50,33 +38,46 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="37dp"
         android:background="@drawable/my_button"
         android:padding="10dp"
         android:text="@string/boton"
         android:textColor="#ffffff"
-        app:buttonGradientStartColor="@color/colorPrimary"
-        app:buttonGradientEndColor="@color/colorAccent"
         app:buttonCornerRadius="20dp"
+        app:buttonGradientEndColor="@color/colorAccent"
+        app:buttonGradientStartColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
     <life.sabujak.roundedbutton.RoundedButton
-        android:textColor="#ffffff"
-        app:buttonGradientStartColor="@color/colorPrimary"
-        app:buttonGradientEndColor="@color/colorAccent"
-        app:buttonCornerRadius="20dp"
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="123dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="146dp"
         android:background="@drawable/my_button"
         android:padding="10dp"
         android:text="@string/botonRegistrar"
+        android:textColor="#ffffff"
+        app:buttonCornerRadius="20dp"
+        app:buttonGradientEndColor="@color/colorAccent"
+        app:buttonGradientStartColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/loginButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="148dp"
+        android:layout_height="207dp"
+        android:layout_marginTop="104dp"
+
+        android:src="@drawable/balon"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/nameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
