@@ -11,43 +11,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="56dp"
         android:text="@string/equipo1"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/puntosEquipo1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/equipo2Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
-        android:layout_marginEnd="39dp"
+        android:layout_marginEnd="2dp"
         android:text="@string/equipo2"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/puntosEquipo2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/puntosEquipo1"
-        android:layout_width="0dp"
-        android:layout_height="138dp"
+        android:layout_width="500dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="23dp"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:clickable="false"
         android:onClick="sumarPuntos1"
         android:text="0"
         android:textSize="30sp"
         android:visibility="invisible"
-        app:layout_constraintBaseline_toBaselineOf="@+id/puntosEquipo2"
-        app:layout_constraintEnd_toStartOf="@+id/puntosEquipo2"
-        app:layout_constraintStart_toStartOf="@+id/equipo1Text" />
+        app:layout_constraintBottom_toTopOf="@+id/agregarFaltaButton"
+        app:layout_constraintStart_toStartOf="@+id/equipo1Text"
+        app:layout_constraintTop_toBottomOf="@+id/equipo1Text" />
 
     <Button
         android:id="@+id/puntosEquipo2"
-        android:layout_width="168dp"
+        android:layout_width="500dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="22dp"
         android:backgroundTint="@android:color/holo_purple"
         android:clickable="false"
         android:onClick="sumarPuntos2"
@@ -55,7 +57,7 @@
         android:textSize="30sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/agregarFaltaButton"
-        app:layout_constraintEnd_toEndOf="@+id/equipo2Text"
+        app:layout_constraintEnd_toEndOf="@+id/agregarFaltaButton"
         app:layout_constraintTop_toBottomOf="@+id/equipo2Text" />
 
     <Button
@@ -77,65 +79,48 @@
         android:layout_width="0dp"
         android:layout_height="162dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="53dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="67dp"
+        android:layout_marginBottom="294dp"
         android:text="00:00"
         android:textAlignment="center"
         android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="@+id/iniciarPartidoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agregarFaltaButton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
 
         android:id="@+id/iniciarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="88dp"
         android:onClick="IniciarCronometro"
         android:text="@string/IniciarPartido"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
 
     <Button
         android:id="@+id/pausarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="109dp"
         android:onClick="pausarCronometro"
         android:text="@string/PausarPartido"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintEnd_toEndOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
 
     <Button
         android:id="@+id/reiniciarPartidoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="63dp"
         android:onClick="reiniciarCronometro"
         android:text="@string/Reiniciarcronometro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
